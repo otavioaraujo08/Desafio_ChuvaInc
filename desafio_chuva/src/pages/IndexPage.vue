@@ -17,6 +17,7 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
+import { useQuasar } from 'quasar'
 // Importando o Axios para receber os valores da API
 import postsService from 'src/services/posts'
 
@@ -28,6 +29,8 @@ export default defineComponent({
     const posts = ref([])
     // Importando as funções que vou utilizar do Nosso postsService
     const { list, remove } = postsService()
+    // Componentes do Quasar
+    const $q = useQuasar()
 
     // Declarando os Valores referentes a nossa tabela
     const colunas = [
@@ -38,6 +41,7 @@ export default defineComponent({
       { name: 'actions', field: 'actions', label: 'Ações', align: 'right' }
     ]
 
+    // Quando for inicializado, executar a função
     onMounted(() => {
       getPosts()
     })
@@ -58,10 +62,10 @@ export default defineComponent({
     const handlerDeletePost = async (id) => {
       try {
         await remove(id)
-        alert('Apagado com sucesso !')
+        $q.notify({ message: 'Apagado com sucesso !', icon: 'check', color: 'positive' })
         await getPosts()
       } catch (error) {
-        alert(error)
+        $q.notify({ message: 'Não foi possível Apagar !', icon: 'close', color: 'negative' })
       }
     }
 
