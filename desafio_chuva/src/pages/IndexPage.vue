@@ -12,7 +12,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
 // Importando o Axios para receber os valores da API
-import { api } from 'boot/axios'
+import postsService from 'src/services/posts'
 
 export default defineComponent({
   name: 'IndexPage',
@@ -20,6 +20,8 @@ export default defineComponent({
   setup () {
     // Nossa Lista do BD
     const posts = ref([])
+    // Importando a Função List do Nosso postsService
+    const { list } = postsService()
 
     // Declarando os Valores referentes a nossa tabela
     const colunas = [
@@ -38,8 +40,8 @@ export default defineComponent({
     // Await -> Função será pausada até que a promise seja resolvida
     const getPosts = async () => {
       try {
-        // Caminho da Nossa Aplicação
-        const { data } = await api.get('posts')
+        // Os dados irão receber os valores da função list
+        const data = await list()
         posts.value = data
       } catch (error) {
         console.log(error)
