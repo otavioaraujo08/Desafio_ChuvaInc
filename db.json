@@ -1,14 +1,10 @@
 {
-    "posts": [
-      { "id": 1, 
-        "title": "A História do Brasil Segundo os Brasileiros", 
-        "author": "Otávio Araujo",
-        "content": "Artigo exemplo de sucesso !" 
-      },
-      { "id": 2, 
-        "title": "A História da Argentina Segundo os Argentinos", 
-        "author": "Otávio Araujo",
-        "content": "Artigo exemplo de superação !" 
-      }
-    ]
-  }
+  "posts": [
+    {
+      "id": 1,
+      "title": "A História do Brasil Segundo os Brasileiros",
+      "author": "Otávio Araujo",
+      "content": "Artigo exemplo de sucesso !"
+    }
+  ]
+}

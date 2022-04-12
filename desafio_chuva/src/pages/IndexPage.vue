@@ -5,7 +5,13 @@
       :rows="posts"
       :columns="colunas"
       row-key="name"
-    />
+    >
+      <template v-slot:body-cell-actions="props">
+        <q-td :props="props">
+          <q-btn icon="delete" color="negative" size="md" dense @click="handlerDeletePost(props.row.id)" />
+        </q-td>
+      </template>
+    </q-table>
   </q-page>
 </template>
 
@@ -20,15 +26,16 @@ export default defineComponent({
   setup () {
     // Nossa Lista do BD
     const posts = ref([])
-    // Importando a Função List do Nosso postsService
-    const { list } = postsService()
+    // Importando as funções que vou utilizar do Nosso postsService
+    const { list, remove } = postsService()
 
     // Declarando os Valores referentes a nossa tabela
     const colunas = [
       // Name e Field precisa receber o nome exato da nossa API
       { name: 'id', field: 'id', label: 'ID', align: 'left', sortable: true },
       { name: 'title', field: 'title', label: 'Título', align: 'center', sortable: true },
-      { name: 'author', field: 'author', label: 'Autor', align: 'right', sortable: true }
+      { name: 'author', field: 'author', label: 'Autor', align: 'center', sortable: true },
+      { name: 'actions', field: 'actions', label: 'Ações', align: 'right' }
     ]
 
     onMounted(() => {
@@ -48,9 +55,20 @@ export default defineComponent({
       }
     }
 
+    const handlerDeletePost = async (id) => {
+      try {
+        await remove(id)
+        alert('Apagado com sucesso !')
+        await getPosts()
+      } catch (error) {
+        alert(error)
+      }
+    }
+
     return {
       posts,
-      colunas
+      colunas,
+      handlerDeletePost
     }
   }
 })
