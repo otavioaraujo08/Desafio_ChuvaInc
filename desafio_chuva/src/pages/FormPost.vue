@@ -2,7 +2,6 @@
   <q-page padding>
     <q-form
       @submit="onSubmit"
-      @reset="onReset"
       class="row q-col-gutter-sm"
     >
       <q-input
@@ -52,8 +51,8 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { defineComponent, ref, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { useQuasar } from 'quasar'
 // Importando Nossas Funções da API
 import postsService from 'src/services/posts'
@@ -64,10 +63,13 @@ export default defineComponent({
   setup () {
     // Componentes do Quasar
     const $q = useQuasar()
+
     // Requisitando nossas funções
-    const { post } = postsService()
+    const { post, getById, update } = postsService()
+
     // Redirecionamento de Rotas
     const router = useRouter()
+    const route = useRoute()
 
     // Nossos dados que pretendemos preencher
     const form = ref({
@@ -76,9 +78,32 @@ export default defineComponent({
       author: ''
     })
 
+    // Função para verificar se é um id a ser adicionado ou atualizado
+    onMounted(async () => {
+      if (route.params.id) {
+        getPost(route.params.id)
+      }
+    })
+
+    // Nossa função para receber os dados do BD
+    const getPost = async (id) => {
+      try {
+        const response = await getById(id)
+        // Enviando os valores do meu BD para o Form
+        form.value = response
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    // Nossa Função de Salvar
     const onSubmit = async () => {
       try {
-        await post(form.value)
+        if (form.value.id) {
+          await update(form.value)
+        } else {
+          await post(form.value)
+        }
         $q.notify({ message: 'Salvo com sucesso !', icon: 'check', color: 'positive' })
         router.push({ name: 'home' })
       } catch (error) {

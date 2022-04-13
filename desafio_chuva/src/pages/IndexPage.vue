@@ -12,7 +12,8 @@
         <q-btn color="primary" label="Adicionar Artigo" :to="{ name: 'formPost' }"/>
       </template>
       <template v-slot:body-cell-actions="props">
-        <q-td :props="props">
+        <q-td :props="props" class="q-gutter-sm">
+          <q-btn icon="edit" color="info" size="md" dense @click="handlerEditPost(props.row.id)" />
           <q-btn icon="delete" color="negative" size="md" dense @click="handlerDeletePost(props.row.id)" />
         </q-td>
       </template>
@@ -22,6 +23,7 @@
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
 // Importando o Axios para receber os valores da API
 import postsService from 'src/services/posts'
@@ -36,6 +38,8 @@ export default defineComponent({
     const { list, remove } = postsService()
     // Componentes do Quasar
     const $q = useQuasar()
+    // Rotas
+    const router = useRouter()
 
     // Declarando os Valores referentes a nossa tabela
     const colunas = [
@@ -74,10 +78,15 @@ export default defineComponent({
       }
     }
 
+    const handlerEditPost = async (id) => {
+      router.push({ name: 'formPost', params: { id } })
+    }
+
     return {
       posts,
       colunas,
-      handlerDeletePost
+      handlerDeletePost,
+      handlerEditPost
     }
   }
 })
