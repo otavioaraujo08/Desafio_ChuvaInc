@@ -7,16 +7,16 @@
       "content": "Artigo exemplo de sucesso !"
     },
     {
-      "id": 3,
-      "title": "A História do Brasil Segundo os Brasileiros",
-      "author": "Otávio Araujo",
-      "content": "Artigo exemplo de sucesso !"
+      "title": "Batata",
+      "content": "Batata sobre os ares",
+      "author": "Top",
+      "id": 7
     },
     {
-      "id": 4,
-      "title": "A História do Brasil Segundo os Brasileiros",
-      "author": "Otávio Araujo",
-      "content": "Artigo exemplo de sucesso !"
+      "title": "Olá Mundo",
+      "content": "",
+      "author": "Marc Zuckerberg",
+      "id": 8
     }
   ]
 }
