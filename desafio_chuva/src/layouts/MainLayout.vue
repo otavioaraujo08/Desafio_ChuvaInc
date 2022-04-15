@@ -1,58 +1,5 @@
 <template>
   <q-layout view="lHh Lpr lFf row">
-    <q-header bordered class="header">
-        <q-toolbar class="justify-around">
-          <div>
-            <span
-              class="header_subtitulo"
-              style="font-size: 14px;"
-            >
-              Anais do Simpósio Latino Americano de Ciências de Alimentos
-            </span>
-            <p
-              class="header_titulo"
-              style="font-size: 22px;"
-            >
-              Anais do 13º Simpósio Latino Americano de Ciência de Alimentos
-            </p>
-            <span
-              class="header_subtitulo"
-              style="
-                font-size: 14px;"
-            >
-              ISSN: 1234-5678
-            </span>
-          </div>
-          <div>
-            <q-select
-              class="seletor"
-              v-model="model"
-              prefix=""
-              square
-              outlined
-            >
-              <template v-slot:prepend>
-                <q-icon name="language" />
-              </template>
-            </q-select>
-          </div>
-          <div>
-            <q-item clickable v-ripple>
-              <q-item-section>
-                <q-item-label class="texto-generico" style="font-size: 20px;">Bem vindo!</q-item-label>
-                <q-item-label class="texto-generico" style="font-size: 15px">alguem12@galoascience.com</q-item-label>
-              </q-item-section>
-              <q-item-section side>
-                <q-avatar size="48px">
-                  <img src="https://cdn.quasar.dev/img/avatar.png" />
-                  <q-badge floating color="negative">2</q-badge>
-                </q-avatar>
-              </q-item-section>
-            </q-item>
-          </div>
-      </q-toolbar>
-    </q-header>
-
     <!-- Itens dentro da minha sidebar-->
     <q-drawer
         v-model="drawer"
@@ -140,44 +87,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-  /* Retirando a Margem */
-  p, span {
-    margin: 0 0 0 0px;
-  }
-
-  /* Título e Subtítulo do Header */
-  .header_subtitulo, .header_titulo {
-    font-family: 'Roboto';
-    font-style: normal;
-    color: #725C5C;
-  }
-
-  /* Header */
-  .header {
-    background: #FDF1EB;
-    min-height: 60px;
-  }
-
-  /* Componente de select do Quasar */
-  .selector {
-    border: 1px solid #CCCCCC;
-    font-family: 'Quicksand';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    color: #333333;
-  }
-
-  /* Texto utilizado na área de Avatar do Header */
-  .texto-generico {
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px;
-    text-align: right;
-    color: #333333;
-  }
-
   /* Título da Sidebar */
   .titulo {
     margin: 12px 0px 7px 23px;

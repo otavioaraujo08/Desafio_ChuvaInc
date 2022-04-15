@@ -1,22 +1,22 @@
 {
   "posts": [
     {
-      "id": 2,
-      "title": "A História da Argentina Segundo os Argentinos",
-      "author": "Motley Crue",
-      "content": "Artigo porrada"
-    },
-    {
       "title": "Batata",
-      "content": "Batata sobre os ares",
-      "author": "Top",
-      "id": 7
+      "content": "Frango",
+      "author": "Cozida",
+      "id": 1
     },
     {
-      "title": "Olá Mundo",
-      "content": "",
-      "author": "Marc Zuckerberg",
-      "id": 8
+      "title": "Teste",
+      "content": "Automatizado",
+      "author": "",
+      "id": 2
+    },
+    {
+      "title": "Slaca",
+      "content": "13",
+      "author": "",
+      "id": 3
     }
   ]
 }

@@ -2,48 +2,49 @@
   <q-page padding>
     <q-form
       @submit="onSubmit"
-      class="row q-col-gutter-sm"
+      class="q-col-gutter-sm"
     >
+      <h7 class="text-left">Assunto</h7>
       <q-input
         outlined
         v-model="form.title"
-        label="Título"
+        label="Defina um tópico sucinto para notificar os autores..."
         lazy-rules
         class="col-lg-6 col-xs-12"
         :rules="[ val => val && val.length > 0 || 'Campo Obrigatório !']"
       />
 
-      <q-input
-        outlined
-        v-model="form.author"
-        label="Autor"
-        lazy-rules
-        class="col-lg-6 col-xs-12"
-        :rules="[ val => val && val.length > 0 || 'Campo Obrigatório !']"
-      />
-
+      <h7 class="text-left">Conteúdo</h7>
       <div class="col-lg-6 col-xs-12">
           <q-editor
             v-model="form.content"
             min-height="5rem"
-            />
+            toolbar-bg="blue-grey-2"
+            :toolbar="[
+              ['bold', 'italic'],
+              [{
+                label: $q.lang.editor.formatting,
+                icon: $q.iconSet.editor.formatting,
+                list: 'no-icons',
+                options: center,
+              }]
+            ]"
+          />
       </div>
 
       <div class="col-12 q-gutter-sm">
           <q-btn
-            label="Salvar"
-            color="primary"
+            label="Enviar"
+            style="background: linear-gradient(180deg, #FEB154 0%, #F1833E 100%); border-radius: 0px 0px 4px 0p; color: #FFFFFF;"
             class="float-right"
-            icon="save"
             type="submit"
-            />
+          />
+
           <q-btn
             label="Cancelar"
             color="white"
             class="float-right"
             text-color="red"
-            icon="close"
-            :to="{ name: 'home' }"
             />
       </div>
     </q-form>
@@ -118,3 +119,16 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+
+h7 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ED7839;
+}
+
+</style>
