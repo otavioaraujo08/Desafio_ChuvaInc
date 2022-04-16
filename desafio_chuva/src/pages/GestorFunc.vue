@@ -53,7 +53,7 @@
               <p>Tem uma dúvida ou sugestão? Compartilhe seu feedback com os autores!</p>
           </q-card-section>
           <q-card-section class="text-left" style="min-height: 350px;">
-                <h7 class="text-left">Assunto</h7>
+                <p class="texto-sub text-left">Assunto</p>
                 <q-input
                   outlined
                   label="Defina um tópico sucinto para notificar os autores..."
@@ -61,7 +61,7 @@
                   class="col-lg-6 col-xs-12 q-mb-md"
                 />
 
-                <h7 class="text-left">Conteúdo</h7>
+                <p class="texto-sub text-left">Conteúdo</p>
                 <div class="col-lg-6 col-xs-12">
                     <q-editor
                       v-model="texto"
@@ -186,7 +186,7 @@ export default defineComponent({
   color: #5C5C5C;
 }
 
-h7 {
+.texto-sub {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
