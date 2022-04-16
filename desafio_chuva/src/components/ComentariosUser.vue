@@ -149,8 +149,6 @@ export default {
 /* Subtítulo Principal do Footer */
 .footer_subtitulo {
   font-family: 'Roboto';
-  font-style: normal;
-  color: #ED7839;
   font-weight: 700;
   font-size: 18px;
   line-height: 21px;
@@ -161,10 +159,16 @@ export default {
   align-items: center;
 }
 
-.autor, .comentario {
+.autor, .comentario, .funcao {
   font-family: 'Quicksand';
-  font-style: normal;
+}
 
+.autor, .comentario, .funcao, .infos, .footer_subtitulo {
+  font-style: normal;
+}
+
+.footer_subtitulo, .funcao {
+  color: #ED7839;
 }
 
 .autor {
@@ -184,7 +188,6 @@ export default {
 
 .infos {
   font-family: 'Segoe UI';
-  font-style: normal;
   font-weight: 350;
   font-size: 14px;
   line-height: 19px;
@@ -199,11 +202,8 @@ export default {
 }
 
 .funcao {
-  font-family: 'Quicksand';
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 15px;
-  color: #ED7839;
 }
 </style>

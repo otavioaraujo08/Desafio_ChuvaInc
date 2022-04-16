@@ -160,16 +160,30 @@ export default defineComponent({
   font-size: 13px;
 }
 
-/* Subtítulo Principal do Footer */
-.footer_subtitulo {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 21px;
-  color: #ED7839;
+.footer_subtitulo, .texto-sub {
   font-family: 'Roboto';
+}
+
+.footer_subtitulo, .texto-sub, .footer_form_subtitulo {
   font-style: normal;
 }
 
+.footer_form_subtitulo, .texto-sub {
+  font-size: 16px;
+}
+
+.texto-sub, .footer_subtitulo {
+  font-weight: 700;
+}
+
+/* Subtítulo Principal do Footer */
+.footer_subtitulo {
+  font-size: 18px;
+  line-height: 21px;
+  color: #ED7839;
+}
+
+/* Classe de Botões */
 .botoes {
   background: #ED7839;
   border-radius: 4px;
@@ -179,18 +193,13 @@ export default defineComponent({
 /* footer para formulário */
 .footer_form_subtitulo {
   font-family: 'Quicksand';
-  font-style: normal;
   font-weight: 400;
-  font-size: 16px;
   line-height: 18px;
   color: #5C5C5C;
 }
 
+/* Texto do Subtítulo */
 .texto-sub {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
   line-height: 19px;
   color: #ED7839;
 }

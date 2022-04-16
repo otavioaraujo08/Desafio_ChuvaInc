@@ -1,5 +1,6 @@
 <template>
   <div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <header bordered class="header">
         <q-toolbar class="justify-around">
           <div>
@@ -327,7 +328,53 @@ p, span {
   margin: 0 0 0 0px;
 }
 
- /* Título do Nosso Texto */
+/* Font-family e Style Igual */
+h5, .botoes, .card-titulo, .footer_subtitulo, .header_subtitulo, .header_titulo {
+     font-family: 'Roboto';
+     font-style: normal;
+  }
+
+/* Font-size*/
+h5, .card-titulo {
+     font-size: 20px;
+  }
+
+h5, .footer_subtitulo {
+    color: #ED7839;
+}
+
+  /* Título e Subtítulo do Header */
+.header_subtitulo, .header_titulo {
+  color: #725C5C;
+}
+
+.informacoes, .universidades, .autores, .footer_form_subtitulo {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 0.02em;
+  color: #5C5C5C;
+}
+
+.selector, .texto-generico, .footer_texto_complementar, .footer_form_subtitulo {
+  font-weight: 400;
+}
+
+.selector, .footer_texto_complementar, .footer_form_subtitulo {
+  font-family: 'Quicksand';
+  font-style: normal;
+}
+
+.footer_form_subtitulo, .footer_texto_complementar {
+  font-size: 16px;
+}
+
+.selector, .texto-generico {
+  color: #333333;
+  line-height: 18px;
+}
+
+/* Título do Nosso Texto */
 h5 {
    font-weight: 900;
    line-height: 25px;
@@ -335,50 +382,23 @@ h5 {
    letter-spacing: 0.05em;
 }
 
-h5, .botoes, .card-titulo, .footer_subtitulo {
-   font-family: 'Roboto';
-   font-style: normal;
-}
-
-h5, .card-titulo {
-   font-size: 20px;
-}
-
-h5, .footer_subtitulo {
-   color: #ED7839;
-}
-
- /* Título e Subtítulo do Header */
-.header_subtitulo, .header_titulo {
-  font-family: 'Roboto';
-  font-style: normal;
-  color: #725C5C;
-}
-
 /* Header */
 .header {
   background: #FDF1EB;
-  min-height: 60px;
+  width: 100%;
+  min-width: auto;
 }
 
 /* Componente de select do Quasar */
 .selector {
   border: 1px solid #CCCCCC;
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
   font-size: 14px;
-  line-height: 18px;
-  color: #333333;
 }
 
 /* Texto utilizado na área de Avatar do Header */
 .texto-generico {
   font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
   text-align: right;
-  color: #333333;
 }
 
 .botoes {
@@ -392,16 +412,7 @@ h5, .footer_subtitulo {
   line-height: 25px;
   display: flex;
   align-items: center;
-
   color: #4E4E4E;
-}
-
-.informacoes, .universidades, .autores {
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%;
-  letter-spacing: 0.02em;
-  color: #5C5C5C;
 }
 
 .informacoes, .autores {
@@ -442,10 +453,6 @@ h5, .footer_subtitulo {
 /* Texto complementar do footer */
 .footer_texto_complementar {
   width: 60%;
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
   line-height: 19px;
   text-align: center;
   color: #595959;
@@ -453,11 +460,12 @@ h5, .footer_subtitulo {
 
 /* footer para formulário */
 .footer_form_subtitulo {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
   line-height: 18px;
-  color: #5C5C5C;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    font-size: 2px;
+  }
 }
 </style>
