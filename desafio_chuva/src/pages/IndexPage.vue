@@ -54,7 +54,7 @@
     </header>
 
     <!-- Informações do Topo da Tela -->
-    <navbar class="row justify-between flex-center">
+    <nav class="row justify-between flex-center">
       <div class="col-8">
         <h5
           style="margin-left: 20px; ">
@@ -72,8 +72,9 @@
         </q-btn>
         <q-space/>
         <p
-          class="text-center q-mt-md"
+          class="text-center"
           style="
+            margin-top: 10px;
             color: #ED7839;
             font-family: 'Roboto';
             font-style: normal;
@@ -83,7 +84,7 @@
         >
           Como citar esse trabalho ?</p>
       </div>
-    </navbar>
+    </nav>
 
     <!-- Informações do Meio da Tela -->
     <body class="row justify-between flex-center">
@@ -202,115 +203,12 @@
 
     <!-- Informações sobre Discussões e Comentários -->
     <footer class="q-ml-md q-mt-md">
-       <q-card
-       v-if="component === 1"
-       style="max-width: 98%;"
-       flat bordered>
-          <q-item class="titulo">
-            <q-item-section>
-              <q-item-label
-                style="
-                  font-family: 'Roboto';
-                  color: #4E4E4E;
-                  font-size: 20px;
-                  font-weight: 500;">
-                Discussões
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-          <q-card-section class="footer_subtitulo text-center">
-              <h7>Compartilhe suas ideias ou dúvidas com os autores</h7>
-          </q-card-section>
-          <q-card-section class="text-center">
-              <img class="q-mr-lg" src="../../public/icons/icone1.png">
-              <img class="q-ml-lg q-mr-lg" src="../../public/icons/icone2.png">
-              <img class="q-ml-lg" src="../../public/icons/icone3.png">
-          </q-card-section>
-          <q-card-section class="relative-position container flex flex-center">
-              <p class="footer_texto_complementar">Sabia que o maior estímulo no desenvolvimento científico e cultural é a curiosidade? Deixe seus questionamentos ou sugestões para o autor!</p>
-          </q-card-section>
-          <div class="relative-position container flex flex-center q-mb-md">
-            <q-btn class="botoes" icon="add" @click="MudarAba()">Criar Tópico</q-btn>
-          </div>
-       </q-card>
+      <GestorFuncao/>
 
-       <q-card
-       v-else-if="component === 2"
-       style="max-width: 98%;"
-       flat bordered>
-          <q-item class="titulo">
-            <q-item-section>
-              <q-item-label
-                style="
-                  font-family: 'Roboto';
-                  color: #4E4E4E;
-                  font-size: 20px;
-                  font-weight: 500;">
-                Discussões
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-          <q-card-section class="footer_form_subtitulo text-center">
-              <h7>Tem uma dúvida ou sugestão? Compartilhe seu feedback com os autores!</h7>
-          </q-card-section>
-          <q-card-section class="text-left" style="max-height: 400px;">
-            <FormPost/>
-          </q-card-section>
-       </q-card>
+      <Comentarios/>
 
-       <q-card
-       v-else-if="component === 3"
-       style="max-width: 98%;"
-       flat bordered>
-          <q-item class="titulo">
-            <q-item-section>
-              <q-item-label
-                style="
-                  font-family: 'Roboto';
-                  color: #4E4E4E;
-                  font-size: 20px;
-                  font-weight: 500;">
-                Discussões
-              </q-item-label>
-            </q-item-section>
-          </q-item>
-          <q-card-section class="footer_subtitulo text-center">
-              <h7>Seu tópico foi enviado com sucesso! :D</h7>
-          </q-card-section>
-          <q-card-section class="footer_form_subtitulo relative-position container flex flex-center">
-              <p>Agradecemos por sua contribuição, uma notificação será enviada ao seu email assim que seu tópico for respondido!</p>
-          </q-card-section>
-          <q-card-section class="footer_subtitulo text-center" style="color: #F48F44;">
-              <h7>Descubra outros trabalhos!</h7>
-          </q-card-section>
-          <div class="relative-position container flex flex-center q-mt-lg q-mb-lg">
-            <q-btn class="botoes" @click="MudarAba()">criar novo tópico</q-btn>
-          </div>
-       </q-card>
+      <LogoEmpresa class="q-mt-lg q-mf-lg"/>
     </footer>
-
-    <div>
-      <q-page padding>
-        <q-table
-          title="Artigos"
-          :rows="posts"
-          :columns="colunas"
-          row-key="name"
-        >
-          <template v-slot:top>
-            Artigos
-            <q-space/>
-            <q-btn color="primary" label="Adicionar Artigo" :to="{ name: 'formPost' }"/>
-          </template>
-          <template v-slot:body-cell-actions="props">
-            <q-td :props="props" class="q-gutter-sm">
-              <q-btn icon="edit" color="info" size="md" dense @click="handlerEditPost(props.row.id)" />
-              <q-btn icon="delete" color="negative" size="md" dense @click="handlerDeletePost(props.row.id)" />
-            </q-td>
-          </template>
-        </q-table>
-      </q-page>
-    </div>
   </div>
 </template>
 
@@ -318,7 +216,10 @@
 import { defineComponent, ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuasar } from 'quasar'
-import FormPost from './FormPost.vue'
+// Nossos componentes
+import Comentarios from '../components/ComentariosUser.vue'
+import GestorFuncao from './GestorFunc.vue'
+import LogoEmpresa from '../components/LogoEmpr.vue'
 // Importando o Axios para receber os valores da API
 import postsService from 'src/services/posts'
 
@@ -326,7 +227,9 @@ export default defineComponent({
   name: 'IndexPage',
 
   components: {
-    FormPost
+    Comentarios,
+    GestorFuncao,
+    LogoEmpresa
   },
 
   setup () {
@@ -339,12 +242,13 @@ export default defineComponent({
     // Rotas
     const router = useRouter()
 
+    let lista = ref([])
+
     // Declarando os Valores referentes a nossa tabela
     const colunas = [
       // Name e Field precisa receber o nome exato da nossa API
       { name: 'id', field: 'id', label: 'ID', align: 'left', sortable: true },
       { name: 'title', field: 'title', label: 'Título', align: 'center', sortable: true },
-      { name: 'author', field: 'author', label: 'Autor', align: 'center', sortable: true },
       { name: 'actions', field: 'actions', label: 'Ações', align: 'right' }
     ]
 
@@ -361,6 +265,7 @@ export default defineComponent({
         // Os dados irão receber os valores da função list
         const data = await list()
         posts.value = data
+        lista = data
       } catch (error) {
         console.log(error)
       }
@@ -383,6 +288,7 @@ export default defineComponent({
     }
 
     return {
+      lista,
       model: 'PT, BR',
       posts,
       colunas,
@@ -406,23 +312,13 @@ export default defineComponent({
       } else {
         this.escolher = true
       }
-    },
-
-    MudarAba () {
-      if (this.component === 1) {
-        this.component = 2
-      } else if (this.component === 2) {
-        this.component = 3
-      } else {
-        this.component = 1
-      }
     }
   }
 })
 </script>
 
 <style scoped>
-navbar {
+nav {
   display: flex;
 }
 

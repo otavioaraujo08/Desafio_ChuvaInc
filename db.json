@@ -1,22 +1,9 @@
 {
   "posts": [
     {
-      "title": "Batata",
-      "content": "Frango",
-      "author": "Cozida",
+      "title": "Tópico",
+      "content": "1",
       "id": 1
-    },
-    {
-      "title": "Teste",
-      "content": "Automatizado",
-      "author": "",
-      "id": 2
-    },
-    {
-      "title": "Slaca",
-      "content": "13",
-      "author": "",
-      "id": 3
     }
   ]
 }

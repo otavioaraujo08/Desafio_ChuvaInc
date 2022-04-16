@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr lFf row">
     <!-- Itens dentro da minha sidebar-->
     <q-drawer
-        v-model="drawer"
+        v-model="leftDrawerOpen"
         show-if-above
         :width="230"
         :breakpoint="400"
@@ -76,7 +76,7 @@ export default defineComponent({
   name: 'MainLayout',
 
   setup () {
-    const leftDrawerOpen = ref(false)
+    const leftDrawerOpen = ref(true)
 
     return {
       model: 'PT, BR',

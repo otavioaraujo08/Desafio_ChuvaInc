@@ -75,8 +75,7 @@ export default defineComponent({
     // Nossos dados que pretendemos preencher
     const form = ref({
       title: '',
-      content: '',
-      author: ''
+      content: ''
     })
 
     // Função para verificar se é um id a ser adicionado ou atualizado
